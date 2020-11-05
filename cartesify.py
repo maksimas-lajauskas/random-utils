@@ -1,11 +1,11 @@
-import sys, os
+import sys
 
 
 def main(ls_args):
   if len(ls_args) > 2:
     write_ls_to_file(ls_args[0],build_cartesian_list(read_file(ls_args[1]),ls_args[2:]))
   else:
-    print("How to use:"+os.linesep+" `python cartesify.py <output file name> <input file 1> <input file 2> ... <input file n>`")
+    print("How to use:\n`python cartesify.py <output file name> <input file 1> <input file 2> ... <input file n>`")
 
 
 def build_cartesian_list(ls_input,ls_filenames):
@@ -23,7 +23,7 @@ def build_cartesian_list(ls_input,ls_filenames):
 
 def read_file(str_filename):
   file = open(str_filename, "r")
-  ls_out = file.read().split(os.linesep)
+  ls_out = file.read().split("\n")
   file.close()
   return ls_out
 
@@ -31,7 +31,7 @@ def read_file(str_filename):
 def write_ls_to_file(str_filename, ls_input):
   file = open(str_filename, "w")
   for line in ls_input:
-    file.write(line + os.linesep)
+    file.write(line + "\n")
     
   file.close()
 
